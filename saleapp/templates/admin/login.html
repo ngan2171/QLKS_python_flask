@@ -1,0 +1,35 @@
+{% extends 'layout/base.html' %}
+
+{% block title %}ĐĂNG NHẬP{% endblock %}
+
+{% block header %}
+{% endblock %}
+
+{% block content %}
+<div class="form-info">
+    <h1 class="text-center text-info" style="font-size:35px; padding:10px">ĐĂNG NHẬP NGƯỜI DÙNG QUẢN TRỊ</h1>
+
+    {% if error_msg %}
+    <div class="alert alert-danger">
+        <h4>{{ error_msg }}</h4>
+    </div>
+    {% endif %}
+    <form class="login" action="{{ url_for('admin_login') }}" method="post">
+        <div class="form-group">
+            <label for="username">Username: </label>
+            <input type="text" name="username" class="form-control"
+                   id="username" placeholder="Nhập username..." required />
+        </div>
+        <div class="form-group">
+            <label for="pass">Mật khẩu: </label>
+            <input type="password" name="password" class="form-control"
+                   id="pass" placeholder="Nhập mật khẩu..." required />
+        </div>
+
+        <input type="submit" value="Đăng nhập" class="btn-submit btn-success"/>
+    </form>
+</div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
